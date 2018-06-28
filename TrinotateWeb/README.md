@@ -22,8 +22,13 @@ docker run --name DatasetName_Trinotate --rm -it -d -p 4569:80 trinotate:dataset
 docker run --name DatasetName_Trinotate --restart=always -it -d -p 4569:80 trinotate:dataset_name
 ```
 
-Use Apache to forward (proxy) a nice URL (eg /apps/DatasetName_Trinotate) to the container host, port 4569, behind `.htaccess` (as per other containerised services proxied in `bio-web-ansible`).
+You should see the app running if you point your browser (or `curl`) to:
 
+```bash
+curl "http://localhost:4569/cgi-bin/index.cgi?sqlite_db=/data/TrinotateAnno.sqlite"
+```
+
+Use Apache to forward (proxy) a nice URL (eg /apps/DatasetName_Trinotate) to the container host, port 4569, behind `.htaccess` (as per other containerised services proxied in `bio-web-ansible`).
 
 ## Option: external data and config in a host directory
 
