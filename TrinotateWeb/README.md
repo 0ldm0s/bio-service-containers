@@ -56,9 +56,9 @@ The user should visit https://canvasxpress.org/ first and accept the insecure ce
     
     # For TrinotateWeb inside a Docker container - absolute URLs mean /css and /js links break
     # when proxied, unless we use this RewriteCond trick detecting referrer. 
-    RewriteCond "%{HTTP_REFERER}" ".*bioinformatics.erc.monash.edu.*/apps/trinotate/DatasetName/.*" [NV]
+    RewriteCond "%{HTTP_REFERER}" ".*bioinformatics.erc.monash.edu(?:.au)?/apps/trinotate/DatasetName/.*" [NV]
     RewriteRule ^/css/(.*)$ "http://localhost:4569/css/$1" [P]
-    RewriteCond "%{HTTP_REFERER}" ".*bioinformatics.erc.monash.edu.*/apps/trinotate/DatasetName/.*" [NV]
+    RewriteCond "%{HTTP_REFERER}" ".*bioinformatics.erc.monash.edu(?:.au)?/apps/trinotate/DatasetName/.*" [NV]
     RewriteRule ^/js/(.*)$ "http://localhost:4569/js/$1" [P]
     RewriteRule ^/apps/trinotate/DatasetName$ /apps/trinotate/DatasetName/ [R]
     RewriteRule ^/apps/trinotate/DatasetName/(.*)$ "http://localhost:4569/$1" [P]
